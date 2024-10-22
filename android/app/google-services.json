@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497940059390",
+    "project_id": "salahtrackerapp-c2e86",
+    "storage_bucket": "salahtrackerapp-c2e86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497940059390:android:cc8f4e8c7ad6a0d37401af",
+        "android_client_info": {
+          "package_name": "me.biplob.salahtrackerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD848fVH8dcsPd2kjxa-NCakfekWx648yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
