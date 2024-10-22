@@ -25,6 +25,18 @@ class MyApp extends StatelessWidget {
           secondary: Colors.green,
         ),
         useMaterial3: true,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black, // Black background
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0), // Rounded corners
+            ),
+            padding: const EdgeInsets.symmetric(
+                vertical: 16.0, horizontal: 24.0), // Padding for the button
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 16.0), // Text style (optional)
+          ),
+        ),
       ),
     );
   }

@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/screens/login_screen.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/screens/registration_screen.dart';
+import 'package:salahtrackerapp/features/into/presentation/screens/intro_screen.dart';
 import 'package:salahtrackerapp/features/splash/presentation/screens/splash_screen.dart';
-import 'package:salahtrackerapp/home_screen_test.dart';
 
 final goRouter = GoRouter(
   initialLocation: SplashScreen.path,
@@ -23,9 +23,9 @@ final goRouter = GoRouter(
       builder: (context, state) => const RegistrationScreen(),
     ),
     GoRoute(
-      name: '/',
-      path: '/',
-      builder: (context, state) => const HomeScreenTest(),
+      name: IntroScreen.name,
+      path: IntroScreen.path,
+      builder: (context, state) => const IntroScreen(),
     ),
   ],
 );
