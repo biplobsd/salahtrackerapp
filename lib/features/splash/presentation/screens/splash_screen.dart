@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/screens/login_screen.dart';
+import 'package:salahtrackerapp/features/home/presentation/screens/home_screen.dart';
 import 'package:salahtrackerapp/features/into/presentation/screens/intro_screen.dart';
 import 'package:salahtrackerapp/features/splash/presentation/widgets/logo.dart';
 
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2)).whenComplete(() {
-      context.go(IntroScreen.path);
+      context.go(HomeScreen.path);
     });
   }
 

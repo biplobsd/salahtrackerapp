@@ -37,6 +37,18 @@ class MyApp extends StatelessWidget {
                 color: Colors.white, fontSize: 16.0), // Text style (optional)
           ),
         ),
+        iconButtonTheme: IconButtonThemeData(
+          style: IconButton.styleFrom(
+            backgroundColor: Colors.black, // Black background
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15), // Rounded corners
+            ),
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+              horizontal: 8.0,
+            ), // Padding for the button
+          ),
+        ),
       ),
     );
   }
