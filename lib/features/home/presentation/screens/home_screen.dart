@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_navigation_bar/responsive_navigation_bar.dart';
-import 'package:salahtrackerapp/core/assets.dart';
+import 'package:salahtrackerapp/app/go_router.dart';
+import 'package:salahtrackerapp/features/authentication/presentation/providers/auth_provider.dart';
+import 'package:salahtrackerapp/features/authentication/presentation/screens/login_screen.dart';
 import 'package:salahtrackerapp/features/splash/presentation/widgets/logo.dart';
 
 import '../widgets/calendar_status_hero.dart';
@@ -21,7 +24,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   int _selectedIndex = 0;
-  DateTime selectedDate = DateTime.now(); // Use current date and time
+  DateTime selectedDate = DateTime.now();
 
   void changeTab(int index) {
     setState(() {
@@ -31,9 +34,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authProvider);
+
     return Scaffold(
       appBar: AppBar(
         leading: const Logo(),
+        title: authState.when(
+          initial: () => TextButton(
+              onPressed: () {
+                context.go(LoginScreen.path);
+              },
+              child: const Text('Login')),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          authenticated: (user) {
+            return Center(child: Text('Welcome, ${user.name}'));
+          },
+          error: (message) => Center(child: Text(message)),
+        ),
         actions: [
           SingleChildScrollView(
             child: Container(

@@ -20,33 +20,32 @@ class MyApp extends StatelessWidget {
       routerConfig: goRouter,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          primary: Colors.blue,
+          seedColor: Colors.black,
+          primary: Colors.black,
           secondary: Colors.green,
         ),
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black, // Black background
+            backgroundColor: Colors.black,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0), // Rounded corners
+              borderRadius: BorderRadius.circular(25.0),
             ),
-            padding: const EdgeInsets.symmetric(
-                vertical: 16.0, horizontal: 24.0), // Padding for the button
-            textStyle: const TextStyle(
-                color: Colors.white, fontSize: 16.0), // Text style (optional)
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+            textStyle: const TextStyle(color: Colors.white, fontSize: 16.0),
           ),
         ),
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
-            backgroundColor: Colors.black, // Black background
+            backgroundColor: Colors.black,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15), // Rounded corners
+              borderRadius: BorderRadius.circular(15),
             ),
             padding: const EdgeInsets.symmetric(
               vertical: 8.0,
               horizontal: 8.0,
-            ), // Padding for the button
+            ),
           ),
         ),
       ),

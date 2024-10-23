@@ -26,7 +26,16 @@ class LoginScreen extends ConsumerWidget {
             });
             return Center(child: Text('Welcome, ${user.email}!'));
           },
-          error: (message) => Center(child: Text(message)),
+          error: (message) {
+            Future.microtask(() {
+              final authState = ref.read(authProvider.notifier);
+              authState.signOut();
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(message)));
+            });
+
+            return const LoginForm();
+          },
         ),
       ),
     );
