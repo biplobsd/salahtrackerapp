@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/providers/auth_provider.dart';
-import 'package:salahtrackerapp/features/authentication/presentation/providers/auth_user_provider.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/widgets/register_form.dart';
+import 'package:salahtrackerapp/features/into/presentation/screens/intro_screen.dart';
 
 class RegistrationScreen extends ConsumerWidget {
   static const path = '/registration';
@@ -20,9 +20,8 @@ class RegistrationScreen extends ConsumerWidget {
           initial: () => const RegisterForm(),
           loading: () => const Center(child: CircularProgressIndicator()),
           authenticated: (user) {
-            ref.read(authUserProvider.notifier).addUser(user);
             Future.microtask(() {
-              context.go('/');
+              context.go(IntroScreen.path);
             });
             return Center(child: Text('Welcome, ${user.email}!'));
           },

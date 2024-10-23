@@ -45,7 +45,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
     }
   }
 
-  // Password validation helper
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter a password';
@@ -91,8 +90,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 ),
               ),
               const SizedBox(height: 32),
-
-              // Name Field
               TextFormField(
                 controller: _nameController,
                 textCapitalization: TextCapitalization.words,
@@ -126,8 +123,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 },
               ),
               const SizedBox(height: 20),
-
-              // Email Field
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -161,8 +156,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 },
               ),
               const SizedBox(height: 20),
-
-              // Password Field
               TextFormField(
                 controller: _passwordController,
                 obscureText: !_isPasswordVisible,
@@ -198,15 +191,12 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 ),
                 validator: _validatePassword,
                 onChanged: (_) {
-                  // Trigger confirm password validation when password changes
                   if (_confirmPasswordController.text.isNotEmpty) {
                     _formKey.currentState?.validate();
                   }
                 },
               ),
               const SizedBox(height: 20),
-
-              // Confirm Password Field
               TextFormField(
                 controller: _confirmPasswordController,
                 obscureText: !_isConfirmPasswordVisible,
@@ -252,8 +242,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 },
               ),
               const SizedBox(height: 24),
-
-              // Password Requirements Info
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -285,8 +273,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 ),
               ),
               const SizedBox(height: 24),
-
-              // Register Button
               SizedBox(
                 height: 55,
                 child: ElevatedButton(
@@ -319,8 +305,6 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Login Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

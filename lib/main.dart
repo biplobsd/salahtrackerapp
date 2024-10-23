@@ -22,14 +22,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.black,
-          primary: Colors.black,
-          secondary: Colors.black,
+          seedColor: Colors.black87,
+          primary: Colors.black87,
+          onPrimary: Colors.white,
+          secondary: Colors.white,
+          onSurface: Colors.black87,
         ),
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.black87,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25.0),
             ),
@@ -41,13 +43,11 @@ class MyApp extends StatelessWidget {
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
             backgroundColor: Colors.black87,
+            foregroundColor: Colors.black87,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 8.0,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
           ),
         ),
       ),

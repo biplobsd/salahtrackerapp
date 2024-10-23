@@ -47,7 +47,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: const Text('Login')),
           loading: () => const Center(child: CircularProgressIndicator()),
           authenticated: (user) {
-            return Center(child: Text('Welcome, ${user.name}'));
+            return Center(child: Text(user.name));
           },
           error: (message) => Center(child: Text(message)),
         ),

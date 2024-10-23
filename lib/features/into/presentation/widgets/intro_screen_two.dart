@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:salahtrackerapp/core/assets.dart';
+import 'package:salahtrackerapp/features/authentication/presentation/providers/auth_provider.dart';
 
 PageViewModel introScreenTwo(BuildContext context, void Function()? onPressed) {
   return PageViewModel(
@@ -17,7 +19,23 @@ PageViewModel introScreenTwo(BuildContext context, void Function()? onPressed) {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
-          height: 50,
+          height: 10,
+        ),
+        Consumer(
+          builder: (context, ref, child) {
+            final authState = ref.watch(authProvider);
+            return authState.when(
+                initial: () => const SizedBox(),
+                loading: () => const SizedBox(),
+                authenticated: (user) => Text(
+                      user.name,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                error: (_) => const SizedBox());
+          },
+        ),
+        const SizedBox(
+          height: 30,
         ),
         Image.asset(
           Assets.prayWhite,
@@ -56,6 +74,8 @@ PageViewModel introScreenTwo(BuildContext context, void Function()? onPressed) {
             shape: BoxShape.circle,
           ),
           child: IconButton(
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.transparent)),
             icon: const Icon(
               Icons.keyboard_arrow_right,
               size: 40,

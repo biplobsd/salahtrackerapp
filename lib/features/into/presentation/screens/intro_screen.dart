@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:salahtrackerapp/features/home/presentation/screens/home_screen.dart';
 import '../widgets/intro_screen_one.dart';
 import '../widgets/intro_screen_three.dart';
 import '../widgets/intro_screen_two.dart';
@@ -44,7 +46,7 @@ class _IntroScreenDemoState extends State<IntroScreen> {
           _introKey.currentState?.next();
         }),
         introScreenThree(context, () {
-          _introKey.currentState?.previous();
+          context.go(HomeScreen.path);
         }),
       ],
       showNextButton: false,

@@ -35,7 +35,6 @@ class AuthViewModelProvider extends ChangeNotifier {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } catch (e) {
-      // TODO: Later task
       loading = false;
       return Future.error(e);
     }
@@ -48,7 +47,6 @@ class AuthViewModelProvider extends ChangeNotifier {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } catch (e) {
-      // TODO: Later task
       loading = false;
       return Future.error(e);
     }

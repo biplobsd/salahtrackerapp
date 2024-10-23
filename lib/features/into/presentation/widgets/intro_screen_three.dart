@@ -44,7 +44,7 @@ PageViewModel introScreenThree(
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             child: const Text(
               "Get Started",
               style: TextStyle(color: Colors.white),

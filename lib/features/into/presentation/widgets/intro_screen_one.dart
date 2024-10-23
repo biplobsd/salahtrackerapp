@@ -40,6 +40,8 @@ PageViewModel introScreenOne(BuildContext context, void Function()? onPressed) {
             shape: BoxShape.circle,
           ),
           child: IconButton(
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.transparent)),
             icon: const Icon(
               Icons.keyboard_arrow_right,
               size: 40,

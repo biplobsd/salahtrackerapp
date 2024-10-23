@@ -37,8 +37,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future<void> signOut() async {
     try {
       await _signOutUseCase();
-      state = const AuthState
-          .initial(); // Update state to initial or handle as needed
+      state = const AuthState.initial();
     } catch (e) {
       state = AuthState.error("Sign out failed: ${e.toString()}");
     }

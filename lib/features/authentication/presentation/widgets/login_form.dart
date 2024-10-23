@@ -70,8 +70,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Email Field
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -105,8 +103,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 },
               ),
               const SizedBox(height: 20),
-
-              // Password Field
               TextFormField(
                 controller: _passwordController,
                 obscureText: !_isPasswordVisible,
@@ -151,8 +147,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 },
               ),
               const SizedBox(height: 32),
-
-              // Login Button
               SizedBox(
                 height: 55,
                 child: ElevatedButton(
@@ -185,8 +179,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
               ),
               const SizedBox(height: 23),
-
-              // Register Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
