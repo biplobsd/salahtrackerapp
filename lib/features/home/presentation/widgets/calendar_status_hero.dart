@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:salahtrackerapp/core/constants.dart';
+import 'package:salahtrackerapp/core/utils.dart';
 import 'package:salahtrackerapp/features/home/presentation/providers/calendar_data_notifier.dart';
+
+import '../providers/day_provider.dart';
 
 class CalendarStatusHero extends ConsumerStatefulWidget {
   const CalendarStatusHero({super.key});
@@ -25,6 +28,7 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
       setState(() {
         selectedDate = picked;
       });
+
       ref.read(calendarDataProvider.notifier).getData(
             latitude,
             longitude,
@@ -33,11 +37,6 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
             selectedDate.month,
           );
     }
-  }
-
-  String convertTo12HourFormat(String time24) {
-    final dateTime = DateFormat("HH:mm").parse(time24);
-    return DateFormat("hh:mm a").format(dateTime);
   }
 
   Duration timeDifference(String prayerTime) {
@@ -66,6 +65,7 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
 
   @override
   Widget build(BuildContext context) {
+    final dayData = ref.read(dayProvider.notifier);
     final calendarData = ref.watch(calendarDataProvider);
 
     if (calendarData.isLoading) {
@@ -81,11 +81,16 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
     }
 
     final datum = calendarData.calendarData![selectedDate.day - 1];
+
+    Future.microtask(() {
+      dayData.change(datum);
+    });
+
     final timings = datum.timings!;
     final gregorian = datum.date!.gregorian!;
     final hijri = datum.date!.hijri!;
-    final suhurTime12 = convertTo12HourFormat(timings.imsak!.split(' ')[0]);
-    final iftarTime12 = convertTo12HourFormat(timings.maghrib!.split(' ')[0]);
+    final suhurTime12 = convertTo12HourFormat(timings.imsak!);
+    final iftarTime12 = convertTo12HourFormat(timings.maghrib!);
 
     final prayerTimes = {
       "Fajr": timings.fajr!,
@@ -94,6 +99,8 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
       "Maghrib": timings.maghrib!,
       "Isha": timings.isha!,
     };
+
+    final currentPrayer = getCurrentPrayer(prayerTimes);
 
     String nextPrayer = '';
     Duration shortestDuration = const Duration(days: 1);
@@ -116,8 +123,8 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  nextPrayer,
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  currentPrayer,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
