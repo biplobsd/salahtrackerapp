@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_navigation_bar/responsive_navigation_bar.dart';
+import 'package:salahtrackerapp/core/assets.dart';
 import 'package:salahtrackerapp/features/splash/presentation/widgets/logo.dart';
 
 import '../widgets/calendar_status_hero.dart';
 import '../widgets/mark_as_done_pray.dart';
+import '../widgets/menus.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const path = '/home';
@@ -76,18 +78,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ),
         ],
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
-              SizedBox(height: 20),
-              CalendarStatusHero(),
-              SizedBox(height: 15),
-              Divider(height: 1),
-              SizedBox(height: 15),
-              MarkAsDonePray(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              const CalendarStatusHero(),
+              const SizedBox(height: 15),
+              const Divider(height: 1),
+              const SizedBox(height: 15),
+              const MarkAsDonePray(),
+              const SizedBox(height: 20),
+              Menus(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
