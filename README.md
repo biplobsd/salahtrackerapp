@@ -14,6 +14,11 @@ A simple tracker app to display prayer times from the Aladhan API. This app is b
 - [x] Screen navigation - Go Router
 - [x] Minimal UI/UX - White Theme
 
+## Screen record
+https://github.com/user-attachments/assets/9f2b1bae-9dc9-4ff1-ad54-99cd0c4ecde9
+
+
+
 ## Screenshots
 
 Splash Screen | Login Screen | Registration Screen | Intro Screen 1 | Intro Screen 2 |  Intro Screen 3 | Home page | Change Date dialog |
