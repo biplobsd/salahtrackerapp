@@ -40,6 +40,7 @@ class _MarkAsDonePrayState extends ConsumerState<MarkAsDonePray> {
 
     setState(() {
       activePrayerIndex = index == -1 ? 0 : index;
+      isPrayerDone = List.filled(5, false);
     });
   }
 
