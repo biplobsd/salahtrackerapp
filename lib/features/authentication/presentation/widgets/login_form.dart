@@ -41,6 +41,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final iBtnStyle = Theme.of(context).iconButtonTheme.style!.copyWith(
+          backgroundColor: WidgetStateProperty.all(Colors.white24),
+        );
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -112,6 +115,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   hintText: 'Enter your password',
                   prefixIcon: const Icon(Icons.lock_outline),
                   suffixIcon: IconButton(
+                    style: iBtnStyle,
                     icon: Icon(
                       _isPasswordVisible
                           ? Icons.visibility_off_outlined

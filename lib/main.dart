@@ -18,11 +18,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Salah Tracker App',
       routerConfig: goRouter,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black,
           primary: Colors.black,
-          secondary: Colors.green,
+          secondary: Colors.black,
         ),
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.black87,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),

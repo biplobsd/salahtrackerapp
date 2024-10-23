@@ -54,7 +54,7 @@ class _MarkAsDonePrayState extends ConsumerState<MarkAsDonePray> {
     final dayData = ref.watch(dayProvider);
 
     if (dayData == null) {
-      return const Center(child: Text("No data"));
+      return const Center(child: Text("No data yet! Please wait ..."));
     }
 
     final prayers = [

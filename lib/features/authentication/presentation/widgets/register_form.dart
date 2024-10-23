@@ -64,6 +64,10 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
+    final iBtnStyle = Theme.of(context).iconButtonTheme.style!.copyWith(
+          backgroundColor: WidgetStateProperty.all(Colors.white24),
+        );
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -167,6 +171,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                   hintText: 'Create a strong password',
                   prefixIcon: const Icon(Icons.lock_outline),
                   suffixIcon: IconButton(
+                    style: iBtnStyle,
                     icon: Icon(
                       _isPasswordVisible
                           ? Icons.visibility_off_outlined
@@ -215,6 +220,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
                     ),
+                    style: iBtnStyle,
                     onPressed: () {
                       setState(() => _isConfirmPasswordVisible =
                           !_isConfirmPasswordVisible);

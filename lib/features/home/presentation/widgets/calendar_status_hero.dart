@@ -77,7 +77,7 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
     }
 
     if (calendarData.calendarData == null) {
-      return const Center(child: Text("No data"));
+      return const Center(child: Text("No data yet! Please wait ..."));
     }
 
     final datum = calendarData.calendarData![selectedDate.day - 1];
@@ -133,7 +133,7 @@ class _CalendarStatusHeroState extends ConsumerState<CalendarStatusHero> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.black87,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(

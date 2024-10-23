@@ -30,7 +30,13 @@ class _QuotesState extends State<Quotes> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       key: _introKey,
-      controlsPosition: const Position(left: 0, right: 0, bottom: 100),
+      controlsPosition: const Position(left: 0, right: 0, bottom: 20),
+      showSkipButton: false,
+      controlsPadding: EdgeInsets.zero,
+      controlsMargin: EdgeInsets.zero,
+      globalHeader: null,
+      dotsDecorator: const DotsDecorator(
+          activeColor: Colors.black87, color: Colors.black38),
       pages: quotes
           .map((q) => PageViewModel(
               decoration: const PageDecoration(
@@ -45,10 +51,11 @@ class _QuotesState extends State<Quotes> {
               ),
               useScrollView: false,
               bodyWidget: Container(
+                height: 300,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.black87,
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

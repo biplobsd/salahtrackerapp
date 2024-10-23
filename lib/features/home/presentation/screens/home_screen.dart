@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_navigation_bar/responsive_navigation_bar.dart';
-import 'package:salahtrackerapp/app/go_router.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/providers/auth_provider.dart';
 import 'package:salahtrackerapp/features/authentication/presentation/screens/login_screen.dart';
 import 'package:salahtrackerapp/features/splash/presentation/widgets/logo.dart';
@@ -38,6 +37,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: const Logo(),
         title: authState.when(
           initial: () => TextButton(
@@ -111,7 +111,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               Menus(),
               const SizedBox(height: 20),
               const SizedBox(
-                height: 450,
+                height: 360,
                 child: Quotes(),
               )
             ],
