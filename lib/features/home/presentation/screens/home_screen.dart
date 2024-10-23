@@ -7,6 +7,7 @@ import 'package:salahtrackerapp/features/splash/presentation/widgets/logo.dart';
 import '../widgets/calendar_status_hero.dart';
 import '../widgets/mark_as_done_pray.dart';
 import '../widgets/menus.dart';
+import '../widgets/quotes.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const path = '/home';
@@ -92,6 +93,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               const SizedBox(height: 20),
               Menus(),
               const SizedBox(height: 20),
+              const SizedBox(
+                height: 450,
+                child: Quotes(),
+              )
             ],
           ),
         ),
